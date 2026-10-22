@@ -1,0 +1,31 @@
+lamina,servicio,tema,recurso_o_comprobacion
+1,Conjunto,"Enumeración de WordPress, SSH y MySQL","Un inventario de puertos, servicios, contenido público e información SQL autorizada."
+2,Conjunto,El alcance de la práctica,Cada dato del informe se etiqueta como público o autenticado.
+3,Conjunto,Qué está ejecutando Docker,bash iniciar.sh | bash verificar.sh
+4,Conjunto,"IP, puerto publicado y puerto interno",Una tabla que distinga destino del alumno y puerto interno.
+5,WordPress,Comprobación de disponibilidad,curl -I http://127.0.0.1:8082/
+6,Conjunto,Descubrimiento de puertos con Nmap,"nmap -sT -Pn -p 2220-2225,3305-3310,8080-8085 127.0.0.1"
+7,Conjunto,Interpretación de estados y transporte,"Interpretación de las columnas PORT, STATE y SERVICE."
+8,Conjunto,Identificación de los tres servicios,"nmap -sT -Pn -sV -p 2222,3307,8082 127.0.0.1"
+9,Conjunto,Scripts NSE: preguntas específicas,"nmap --script-help ssh-hostkey,ssh2-enum-algos,mysql-info,http-title"
+10,WordPress,HTTP y encabezados de WordPress,"curl -I http://127.0.0.1:8082/ | nmap -sT -sV -p 8082 --script http-title,http-headers,http-generator 127.0.0.1"
+11,WordPress,HTML e indicios de WordPress,curl http://127.0.0.1:8082/
+12,WordPress,robots.txt y mapa del sitio,curl http://127.0.0.1:8082/robots.txt | curl http://127.0.0.1:8082/wp-sitemap.xml
+13,WordPress,Rutas públicas con Gobuster,cat diccionarios/rutas.txt | gobuster dir -u http://127.0.0.1:8082/ -w diccionarios/rutas.txt -t 2
+14,WordPress,"Redirecciones, acceso y documentos públicos",curl -I http://127.0.0.1:8082/wp-admin/ | curl http://127.0.0.1:8082/material/ | curl http://127.0.0.1:8082/material/inventario.csv
+15,WordPress,Enumeración del tema activo,curl http://127.0.0.1:8082/wp-content/themes/campuspress/style.css
+16,WordPress,Enumeración del plugin preparado,curl http://127.0.0.1:8082/wp-content/plugins/campus-agenda/readme.txt
+17,WordPress,API REST: entradas y páginas públicas,"curl ""http://127.0.0.1:8082/wp-json/wp/v2/posts?_fields=id,title,author,link"" | curl ""http://127.0.0.1:8082/wp-json/wp/v2/pages?_fields=id,title,link"""
+18,WordPress,Autores públicos y límites de la enumeración,"curl ""http://127.0.0.1:8082/wp-json/wp/v2/users?_fields=id,name,slug,link"" | curl -I ""http://127.0.0.1:8082/?author=1"""
+19,WordPress,Automatización de WordPress y sus límites,wpscan --url http://127.0.0.1:8082/ --enumerate u --plugins-detection passive --no-update
+20,SSH,SSH: protocolo y banner de servicio,nmap -sT -sV -p 2222 127.0.0.1
+21,SSH,Claves públicas del servidor SSH,nmap -sT -sV -p 2222 --script ssh-hostkey 127.0.0.1 | ssh-keyscan -p 2222 -t ed25519 127.0.0.1 > hostkey_lab.txt | ssh-keygen -lf hostkey_lab.txt
+22,SSH,Algoritmos que ofrece SSH,nmap -sT -sV -p 2222 --script ssh2-enum-algos 127.0.0.1
+23,SSH,Métodos de autenticación SSH,nmap -sT -sV -p 2222 --script ssh-auth-methods --script-args ssh.user=observador 127.0.0.1
+24,MySQL,"MySQL: servicio, protocolo y motor",nmap -sT -sV -p 3307 127.0.0.1
+25,MySQL,Información MySQL antes de autenticarse,nmap -sT -sV -p 3307 --script mysql-info 127.0.0.1
+26,MySQL,Acceso de lectura proporcionado por el docente,bash sql.sh
+27,MySQL,Enumeración de bases y permisos visibles,"SELECT VERSION(), USER(), CURRENT_USER(); | SHOW DATABASES; | SHOW GRANTS;"
+28,MySQL,"Tablas, columnas, vistas y datos de muestra","USE inventario_lab; | SHOW TABLES; | DESCRIBE servicios; | SELECT * FROM v_servicios; | SELECT nombre, rol FROM equipo_web;"
+29,Conjunto,Correlación de lo enumerado,"Inventario con columnas: servicio, dato, fuente, acceso requerido y conclusión permitida."
+30,Conjunto,Reto final y entrega,Una entrega reproducible que compara tres protocolos y sus niveles de exposición.

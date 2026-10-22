@@ -1,0 +1,10 @@
+robots.txt
+wp-login.php
+wp-admin/
+wp-json/
+wp-sitemap.xml
+readme.html
+contacto/
+recursos/
+material/
+no-existe-123

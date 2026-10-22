@@ -1,0 +1,51 @@
+WORDPRESS, SSH Y MYSQL - ENUMERACIÓN DE SERVICIOS
+
+Trabaja desde Kali con los servicios que preparó el docente.
+WordPress: http://127.0.0.1:8082/
+SSH: 127.0.0.1:2222
+MySQL: 127.0.0.1:3307
+Si el docente cambió los puertos, utiliza los indicados para tu instalación.
+
+PROPÓSITO
+Identificar protocolos, productos, recursos y capacidades. Una parte de la enumeración es pública. La parte SQL utiliza una cuenta de lectura autorizada. No se buscan contraseñas ni una consola.
+
+ANTES DE EMPEZAR
+Abre una terminal en la carpeta WordPress_Enumeracion_Lab.
+El servidor debe estar preparado; no completes un instalador de WordPress manualmente. El docente comprueba el conjunto con bash verificar.sh.
+
+BLOQUE A - DESCUBRIMIENTO
+1. Ejecuta un escaneo TCP acotado y reconoce los tres puertos del laboratorio. Si hay otros servicios locales, no los atribuyas automáticamente a este conjunto.
+2. Utiliza detección de versión. Registra producto, protocolo y versión tal como aparezcan.
+3. Explica por qué 2222 puede ser SSH y 3307 MySQL aunque no sean sus puertos habituales.
+
+BLOQUE B - WORDPRESS
+4. Observa título y encabezados. Distingue el servidor web del núcleo WordPress.
+5. Inspecciona HTML, robots.txt y mapa del sitio. Elabora un mapa de al menos seis URLs.
+6. Lee los recursos del tema y plugin que la portada utiliza. Registra nombre, versión y URL que lo confirma.
+7. Enumera entradas, páginas y autores mediante la API pública. Escribe al menos dos autores y una publicación de cada uno.
+8. Enumera las diez rutas del diccionario incluido. Interpreta una redirección y una ruta inexistente.
+9. Visita Recursos y confirma qué archivos públicos se entregan. Explica por qué un nombre de equipo en CSV no demuestra que exista un host activo.
+10. Si está disponible, compara con WPScan. No se requiere token de vulnerabilidades ni ataques a contraseñas. Registra una diferencia entre la salida automática y la observación manual.
+
+BLOQUE C - SSH
+11. Identifica protocolo y banner de producto.
+12. Obtén una clave pública de host y calcula su huella. ¿Qué identifica esa clave?
+13. Lista algoritmos y explica dos categorías de la salida.
+14. Consulta métodos de autenticación usando observador, nombre proporcionado por el docente. Es una negociación puntual autorizada. ¿Qué método anuncia y qué no permite concluir sobre las cuentas?
+
+BLOQUE D - MYSQL
+15. Consulta el saludo con Nmap. Registra los campos realmente recibidos, aunque sean parciales.
+16. Abre el cliente autorizado con bash sql.sh.
+    Usuario: auditor
+    Contraseña ficticia: EnumSQL-2026!
+17. Dentro de mysql>, consulta identidad, versión, bases visibles y permisos propios.
+18. Usa inventario_lab. Enumera tablas, una vista y columnas de servicios. Consulta una muestra de equipo_web y v_servicios.
+19. Compara los puertos internos de la tabla con los publicados que observaste en Nmap.
+20. Explica por qué la cuenta no puede listar los datos internos de WordPress. No intentes modificar datos.
+
+ENTREGA
+Una tabla de ocho a doce observaciones con estas columnas:
+Servicio / Dato observado / Comando o URL / Público o autenticado / Conclusión permitida.
+Adjunta hasta seis evidencias legibles y responde las preguntas anteriores agrupadas por bloque. No es necesario adjuntar una salida completa de cada herramienta.
+
+No presentes como hallazgo de explotación un banner, una versión o una consulta SQL con credenciales entregadas. Los autores de WordPress no son automáticamente cuentas de SSH o MySQL. Distingue la versión del núcleo, del servidor web, del tema y del plugin.

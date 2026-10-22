@@ -1,0 +1,12 @@
+/*
+Theme Name: CampusPress
+Theme URI: https://example.test/campuspress
+Author: Equipo Campus Demo
+Description: Tema docente para practicar enumeracion de WordPress.
+Version: 1.2
+License: GPL-2.0-or-later
+Text Domain: campuspress
+*/
+body { font: 19px Arial,sans-serif; max-width: 960px; padding: 25px; margin: 35px auto; color: #193e50; }
+a { color: #087b9a; } article { border-bottom: 1px solid #ddd; padding: 18px 0; }
+nav a { margin-right: 20px; } footer { margin-top: 35px; font-size: 15px; }

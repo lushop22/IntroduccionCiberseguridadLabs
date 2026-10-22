@@ -1,0 +1,17 @@
+ALCANCE DE LA VALIDACIÓN
+
+En el entorno de elaboración no está instalado Docker, MySQL Server ni PHP CLI. No se realizó una ejecución integrada de los contenedores. No se afirma que WordPress, sus endpoints o los scripts NSE hayan sido ejecutados aquí.
+
+Comprobaciones estáticas realizadas:
+- Compose YAML parseable y definición coherente de tres servicios permanentes y preparación temporal.
+- Sintaxis Bash/sh de scripts.
+- JSON parseable con 30 láminas y comandos separados por contexto Bash/MySQL.
+- Correspondencia de puertos, nombres de tema/plugin, slugs de autores y objetos SQL entre material y preparación.
+- Recursos de montaje y diccionario incluidos en el ZIP.
+
+Comprobación necesaria en Kali antes de clase:
+1. bash iniciar.sh
+2. bash verificar.sh
+3. Ejecutar los scripts NSE indicados y anotar salidas reales de las versiones de Kali instaladas.
+
+El verificador proporcionado comprueba HTTP, enlaces limpios, tema y plugin, autores REST, clave SSH, lectura SQL y rechazo de escritura. Su resultado pertenece a la ejecución del docente y no se presenta como una prueba ya realizada aquí.
