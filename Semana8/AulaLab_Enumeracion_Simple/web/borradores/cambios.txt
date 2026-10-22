@@ -1,0 +1,5 @@
+BORRADOR DIDÁCTICO
+Versión de la aplicación: 1.2-demo
+Equipo responsable: Equipo Web Demo
+Pendiente antes de una publicación real: decidir qué documentos deben ser públicos.
+Este archivo no contiene contraseñas ni credenciales.

@@ -1,0 +1,7 @@
+NOTAS DEL PORTAL — DATOS FICTICIOS
+Aplicación: AulaLab
+Versión de la aplicación: 1.2-demo
+Entorno: pruebas
+Responsable: Equipo Web Demo
+Inventario de práctica: /archivos/inventario.csv
+Estas notas forman parte del ejercicio de enumeración.

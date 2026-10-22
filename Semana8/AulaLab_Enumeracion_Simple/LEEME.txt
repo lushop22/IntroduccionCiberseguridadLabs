@@ -1,0 +1,54 @@
+AULALAB: ENUMERACIÓN SIMPLE
+
+Una web con archivos preparados y un solo contenedor Nginx. El alumno usa Firefox, curl, Nmap y una búsqueda pequeña con Gobuster. Todo funciona dentro de Kali. No hay formularios de acceso, bases de datos, contraseñas ni modos de corrección.
+
+PREPARACIÓN DEL DOCENTE, ANTES DE CLASE
+1. Extrae AulaLab_Enumeracion_Simple.zip dentro de la carpeta personal de Kali.
+   Desde la carpeta donde descargaste el ZIP:
+   unzip AulaLab_Enumeracion_Simple.zip -d "$HOME"
+
+2. Si faltan las herramientas, instálalas:
+   sudo apt update
+   sudo apt install -y docker.io curl nmap gobuster
+   sudo systemctl enable --now docker
+
+3. Inicia el laboratorio:
+   cd ~/AulaLab_Enumeracion_Simple
+   bash iniciar.sh
+
+4. Abre Firefox DENTRO DE KALI:
+   http://127.0.0.1:8080/
+
+La primera construcción descarga la imagen oficial nginx:alpine. Necesita Internet. Después la práctica usa solo el servicio local. No necesitas instalar Nginx en el sistema de Kali. El ZIP ya contiene la configuración y todos los documentos.
+
+PARA CERRAR Y VOLVER A ABRIR
+   sudo docker stop aulalab-enum
+   sudo docker start aulalab-enum
+
+El comando iniciar.sh también vuelve a iniciar este mismo contenedor si ya existe. No hay un procedimiento de corrección o restablecimiento porque la clase solo realiza consultas.
+
+SI NO ABRE
+- Confirma que Docker funciona: sudo systemctl start docker.
+- Confirma el contenedor: sudo docker ps -a --filter name=aulalab-enum.
+- Mira el error concreto: sudo docker logs --tail 20 aulalab-enum.
+- Si el puerto 8080 está ocupado, comprueba sudo docker ps antes de detener algo.
+- Si sigue levantado el objetivo anterior del curso, llamado aulalab, puedes detenerlo con sudo docker stop aulalab y volver a ejecutar bash iniciar.sh. Este laboratorio nuevo se llama aulalab-enum.
+- No se cambia el puerto silenciosamente: las 30 láminas usan 8080.
+- Si falla la descarga de nginx:alpine, revisa Internet y el adaptador NAT de VirtualBox.
+- El objetivo se abre desde Kali. No se publica para el navegador de Windows.
+- La IP interna del contenedor y el puerto 80 no se usan en los comandos del alumno.
+- Si falla unzip, instálalo con sudo apt install -y unzip o extrae el ZIP desde el administrador de archivos.
+
+La publicación usa loopback. Para esta práctica mantén la VM con NAT y sin adaptador puente. Docker documenta una salvedad en versiones anteriores a 28 sobre acceso a puertos de loopback desde el mismo segmento L2: https://docs.docker.com/engine/network/port-publishing/
+
+ARCHIVOS PRINCIPALES
+- iniciar.sh: construye y enciende el objetivo.
+- Dockerfile: utiliza la imagen oficial Nginx y copia contenido preparado.
+- nginx.conf: sirve el contenido y establece los ejemplos 403 y listados.
+- web/: páginas y documentos ficticios.
+- rutas.txt: diez candidatos para Gobuster.
+- GUIA_ALUMNO.txt: recorrido sin explicación de infraestructura.
+- SOLUCION_DOCENTE.txt: resultados y sugerencia de evaluación.
+
+ANTES DE DICTAR
+Consulta SOLUCION_DOCENTE.txt y comprueba el arranque y las rutas en tu Kali. La versión exacta de Nginx depende de la imagen descargada. Las expectativas HTTP proceden de la configuración del paquete. En el entorno de elaboración no hay motor Docker, por lo que la construcción y estas respuestas requieren comprobación final en Kali.

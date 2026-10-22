@@ -1,0 +1,7 @@
+{
+  "aplicacion": "AulaLab",
+  "version": "1.2-demo",
+  "entorno": "pruebas",
+  "estado": "disponible",
+  "nota": "Archivo JSON estático de demostración. No es una API con base de datos."
+}

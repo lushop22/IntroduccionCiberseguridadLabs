@@ -1,0 +1,4 @@
+HORARIO DE PRÁCTICA — EJEMPLO
+Grupo A: 09:00 a 10:00
+Grupo B: 10:00 a 11:00
+Información ficticia para observar nombres, tipos y contenido de archivos.
